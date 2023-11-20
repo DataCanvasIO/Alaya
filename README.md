@@ -120,7 +120,7 @@ Alaya训练过程中已经采取多种措施进行数据的筛选与过滤，尽
 
 &nbsp;
 # 📃 协议
-Alaya使用<a href="https://github.com/DataCanvasIO/Alaya/blob/main/LICENSE">Apache 2.0 Lisense</a>，开放模型权重，允许商业用途。如果您的项目引用了我们Alaya，请标明出处，可以使用一下citation：
+Alaya使用<a href="https://github.com/DataCanvasIO/Alaya/blob/main/LICENSE">Apache 2.0 Lisense</a>，开放模型权重，允许商业用途。如果您的项目引用了我们的Alaya，请标明出处，可以使用以下citation：
 ```
 @misc{datacanvas2023alaya,
     author = {DataCanvas Ltd.},
