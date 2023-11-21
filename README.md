@@ -37,8 +37,8 @@ Alaya使用了自研的大规模、多语言语料库。并采用文本去重和
 
 Alaya预训练数据中，英文语料占比约60%，中文语料占比约30%，代码语料占比约10%。为了更好地控制不同类型的语料参与训练的比例，对所有语料都做了分类，各个类型的语料token占比细节如下图所示：
 <div align="center">
-  <img src="https://github.com/DataCanvasIO/Alaya/blob/main/pics/Alaya%E5%90%84%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%96%99%E5%88%86%E5%B8%83_github.png" width="400px">
-  <img src="https://github.com/DataCanvasIO/Alaya/blob/main/pics/Alaya%E5%90%84%E7%B1%BB%E5%88%AB%E8%AF%AD%E6%96%99%E5%88%86%E5%B8%83_github.png" width="400px">
+  <img src="https://github.com/DataCanvasIO/Alaya/blob/main/pics/Alaya%E5%90%84%E7%B1%BB%E5%88%AB%E8%AF%AD%E6%96%99%E5%88%86%E5%B8%83_ZH.png" width="400px">
+  <img src="https://github.com/DataCanvasIO/Alaya/blob/main/pics/Alaya%E5%90%84%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%96%99%E5%88%86%E5%B8%83_ZH.png" width="400px">
 </div>
 
 ### 训练参数
@@ -67,7 +67,7 @@ Alaya预训练数据中，英文语料占比约60%，中文语料占比约30%，
 Alaya-Chat基于Alaya-7B进行有监督微调（SFT），微调数据量达500k+条，包含多领域的指令和对话数据。经过模型初筛和人工精筛，大幅提高微调数据品质，并且基于偏见语料对模型做了Red Teaming拒答微调。由于目前中文SFT语料多为机器翻译/大模型翻译而成，人工精筛可以进一步将其中不符合中文语法或使用习惯的劣质数据剔除。具体的微调数据分布如下图：
 
 <div align="center">
-  <img src="https://github.com/DataCanvasIO/Alaya/blob/main/pics/alaya%E5%BE%AE%E8%B0%83%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83.png" width="400px">
+  <img src="https://github.com/DataCanvasIO/Alaya/blob/main/pics/Alaya%E5%BE%AE%E8%B0%83%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83_ZH.png" width="400px">
 </div>
 
 + HHH(Helpful, Honest, Harmless)：问答模型最基础的属性就是为用户提供有帮助的、诚实的、无害健康的回答，我们精选了数万条3H对话数据。
