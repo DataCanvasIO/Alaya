@@ -84,20 +84,20 @@ Alaya-Chat基于Alaya-7B进行有监督微调（SFT），微调数据量达500k+
 # 💬 使用Alaya
 
 ### 依赖包安装
-```shell
-git clone https://github.com/DataCanvasIO/Alaya.git
-pip install -r requirments.txt
 ```
-
+git clone https://github.com/DataCanvasIO/Alaya.git
+```
++ 推断依赖包：   ```pip install -r requirments.txt```
++ 微调依赖包：   ```pip install -r requirments_sft.txt```
 
 ### 推理方法
 ```
-python -u inferrence.py <model_path> <input_file> <output_file>
+python -u inferrence.py <model_path> <input_file> <output_file> [adapter_path]
 ```
 + ```model_path``` ：模型文件路径
 + ```input_file``` ：推断的输入```.txt```文件路径，每行为一个prompt
 + ```output_file``` ：输出的```.json```文件路径
-
++ ```adapter_path```：如果要使用微调后的adpter，设置其路径
 &nbsp;
 # 📰 新闻 
 + 2023年11月21日，九章云极举办开源Alaya-7B系列大模型发布会。  
