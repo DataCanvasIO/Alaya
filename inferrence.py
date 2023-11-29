@@ -16,6 +16,7 @@ adapter_path = args.adapter_path
 
 model_name = "DataCanvas/Alaya-7B-Base"
 config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
+config.attn_config['attn_impl'] = 'torch'
 model = AutoModelForCausalLM.from_pretrained(model_name, config=config, torch_dtype=torch.bfloat16, trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
