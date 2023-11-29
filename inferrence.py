@@ -14,7 +14,7 @@ input_file = args.input_file
 output_file = args.output_file
 adapter_path = args.adapter_path
 
-model_name = "DataCanvas/Alaya-7B-Base"
+model_name = "DataCanvas/Alaya-7B-Chat"
 config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
 config.attn_config['attn_impl'] = 'torch'
 model = AutoModelForCausalLM.from_pretrained(model_name, config=config, torch_dtype=torch.bfloat16, trust_remote_code=True)
