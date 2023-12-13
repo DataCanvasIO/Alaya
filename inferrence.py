@@ -17,6 +17,8 @@ adapter_path = args.adapter_path
 model_name = "DataCanvas/Alaya-7B-Chat"
 config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
 config.attn_config['attn_impl'] = 'torch'
+# config.max_seq_len = 4096  # (input + output) tokens can now be up to 4096
+
 model = AutoModelForCausalLM.from_pretrained(model_name, config=config, torch_dtype=torch.bfloat16, trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
