@@ -87,8 +87,8 @@ Alaya-Chat基于Alaya-7B进行有监督微调（SFT），微调数据量达500k+
 ```
 git clone https://github.com/DataCanvasIO/Alaya.git
 ```
-+ 推断依赖包：   ```pip install -r requirments.txt```
-+ 微调依赖包：   ```pip install -r requirments_sft.txt```
++ 推断依赖包：   ```pip install -r requirements.txt```
++ 微调依赖包：   ```pip install -r requirements_sft.txt```
 
 ### 推理方法
 ```
