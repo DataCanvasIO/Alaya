@@ -1,9 +1,4 @@
-import os
 from typing import List, Optional, Tuple
-try:
-    import tomllib as _toml_loader  # Python 3.11+
-except Exception:  
-    import tomli as _toml_loader  # type: ignore
 
 import torch
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer, pipeline
@@ -13,36 +8,11 @@ from pydantic import BaseModel, ValidationError, Field
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
-def _find_pyproject(start_dir: str) -> Optional[str]:
-    """Find nearest pyproject.toml upwards from start_dir."""
-    current_dir = os.path.abspath(start_dir)
-    root_dir = os.path.abspath(os.sep)
-    while True:
-        candidate = os.path.join(current_dir, 'pyproject.toml')
-        if os.path.isfile(candidate):
-            return candidate
-        if current_dir == root_dir:
-            return None
-        current_dir = os.path.dirname(current_dir)
+# Predefined configuration (no environment or TOML loading)
+MODEL_NAME = 'Alaya-7B-Chat'
+GPU_ID = 0  # used only when CUDA is available
+BAD_WORD_TOKEN_ID = 3
 
-
-def _load_tool_alaya_config() -> dict:
-    """Load [tool.alaya] from pyproject.toml, return empty dict on failure."""
-    pyproject_path = _find_pyproject(os.path.dirname(__file__))
-    if not pyproject_path:
-        return {}
-    try:
-        with open(pyproject_path, 'rb') as file_obj:
-            doc = _toml_loader.load(file_obj)
-        return (doc.get('tool') or {}).get('alaya') or {}
-    except Exception:
-        return {}
-
-
-# Basic runtime configuration from pyproject with environment variable overrides
-_cfg = _load_tool_alaya_config()
-MODEL_NAME = os.getenv('ALAYA_MODEL_NAME', _cfg.get('model_name', 'Alaya-7B-Chat'))
-GPU_ID_STR = os.getenv('ALAYA_GPU_ID', str(_cfg.get('gpu_id', 0)))
 
 # Build model config
 config = AutoConfig.from_pretrained(MODEL_NAME, trust_remote_code=True)
@@ -68,19 +38,12 @@ tokenizer = AutoTokenizer.from_pretrained(
 eos_token_id = tokenizer.eos_token_id or getattr(config, 'eos_token_id', 2)
 pad_token_id = eos_token_id
 
-# Optional bad words token id (single token). Read from pyproject then env override
-bad_word_token_id = _cfg.get('bad_word_token_id')
-bad_word_token_id_env = os.getenv('ALAYA_BAD_WORD_TOKEN_ID')
-if bad_word_token_id_env is not None:
-    try:
-        bad_word_token_id = int(bad_word_token_id_env)
-    except ValueError:
-        bad_word_token_id = None
-bad_words_ids = [[bad_word_token_id]] if isinstance(bad_word_token_id, int) else None
+# Optional bad words token id (single token) as a predefined constant
+bad_words_ids = [[BAD_WORD_TOKEN_ID]]
 
 # Choose device for inference
 use_cuda = torch.cuda.is_available()
-device_for_pipeline: int = int(GPU_ID_STR) if use_cuda else -1
+device_for_pipeline: int = int(GPU_ID) if use_cuda else -1
 
 text_generator = pipeline(
     'text-generation',
