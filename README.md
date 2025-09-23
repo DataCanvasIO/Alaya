@@ -87,13 +87,31 @@ Alaya-Chat基于Alaya-7B进行有监督微调（SFT），微调数据量达500k+
 ```
 git clone https://github.com/DataCanvasIO/Alaya.git
 ```
-+ 推理依赖包：   ```pip install -r requirements.txt```
-+ 微调依赖包：   ```pip install -r requirements_sft.txt```
+- 安装 uv（一次性）：
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+- 创建并激活虚拟环境（macOS / Linux）：
+```bash
+uv venv .venv
+source .venv/bin/activate
+```
+  Windows（PowerShell）：
+```powershell
+uv venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+- 安装依赖：
+  - 基础依赖：```uv sync```
+  - 微调依赖（含基础）：```uv sync --extra sft```
+  
+  项目已使用 `pyproject.toml` 管理依赖；原 `requirements*.txt` 已不再需要。
 
 ### 推理方法
+```bash
+uv run python -u inferrence.py <model_path> <input_file> <output_file> [adapter_path]
 ```
-python -u inferrence.py <model_path> <input_file> <output_file> [adapter_path]
-```
+已激活虚拟环境时也可直接使用：```python -u inferrence.py <model_path> <input_file> <output_file> [adapter_path]```。
 + ```model_path``` ：模型文件路径
 + ```input_file``` ：推理的输入```.txt```文件路径，每行为一个prompt
 + ```output_file``` ：输出的```.json```文件路径

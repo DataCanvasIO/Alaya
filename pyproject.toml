@@ -1,0 +1,34 @@
+[project]
+name = "alaya"
+version = "0.0.0"
+description = "Alaya model usage and supervised fine-tuning utilities"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+
+dependencies = [
+  "torch==2.1.0",
+  "transformers==4.33.3",
+  "einops==0.5.0",
+  "flask",
+  "pydantic",
+  "tomli; python_version < '3.11'",
+]
+
+[tool.alaya]
+model_name = "Alaya-7B-Chat"
+gpu_id = 0
+bad_word_token_id = 3
+
+[project.optional-dependencies]
+sft = [
+  "peft",
+  "trl",
+  "datasets",
+]
+
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+
