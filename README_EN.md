@@ -95,7 +95,7 @@ python -u inferrence.py <model_path> <input_file> <output_file>
 &nbsp;
 # 📰 News
 + On November 21, 2023, DataCanvas hosted the open-source release event for the Alaya-7B series.
- + On January 29, 2024, DataCanvas open-sourced the multimodal model [MMAlaya](https://github.com/DataCanvasIO/MMAlaya).
++ On January 29, 2024, DataCanvas open-sourced the multimodal model [MMAlaya](https://github.com/DataCanvasIO/MMAlaya).
 
 &nbsp;
 # 🛎 Declaration

@@ -100,9 +100,8 @@ python -u inferrence.py <model_path> <input_file> <output_file> [adapter_path]
 + ```adapter_path```：如果要使用微调后的 adapter，设置其路径
 &nbsp;
 # 📰 新闻 
-+ 2023年11月21日，九章云极举办开源Alaya-7B系列大模型发布会。  
-+ 2023年11月21日，九章云极发布了多模态MMAlaya。 
- + 2024年1月29日，九章云极开源了多模态 [MMAlaya](https://github.com/DataCanvasIO/MMAlaya)。 
++ 2023年11月21日，九章云极举办开源Alaya-7B系列大模型发布会。
++ 2024年1月29日，九章云极开源了多模态 [MMAlaya](https://github.com/DataCanvasIO/MMAlaya)。 
 
 &nbsp;
 # 🛎 声明
