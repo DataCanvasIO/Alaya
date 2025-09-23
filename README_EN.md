@@ -84,17 +84,18 @@ git clone https://github.com/DataCanvasIO/Alaya.git
 pip install -r requirements.txt
 ```
 
-### Chat Model Inferrence
+### Chat Model Inference
 ```
 python -u inferrence.py <model_path> <input_file> <output_file>
 ```
-+ ```model_path``` ：Path of model checkpoint path.
-+ ```input_file``` ：Path of the input ```.txt``` file for inferrence, consisting of prompts line by line.
++ ```model_path``` ：Path of the model checkpoint.
++ ```input_file``` ：Path of the input ```.txt``` file for inference, with one prompt per line.
 + ```output_file``` ：Path of the output ```.json``` file.
 
 &nbsp;
 # 📰 News
 + On November 21, 2023, DataCanvas hosted the open-source release event for the Alaya-7B series.
+ + On January 29, 2024, DataCanvas open-sourced the multimodal model [MMAlaya](https://github.com/DataCanvasIO/MMAlaya).
 
 &nbsp;
 # 🛎 Declaration

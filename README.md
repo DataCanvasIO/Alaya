@@ -87,21 +87,22 @@ Alaya-Chat基于Alaya-7B进行有监督微调（SFT），微调数据量达500k+
 ```
 git clone https://github.com/DataCanvasIO/Alaya.git
 ```
-+ 推断依赖包：   ```pip install -r requirmentes.txt```
-+ 微调依赖包：   ```pip install -r requirmentes_sft.txt```
++ 推理依赖包：   ```pip install -r requirements.txt```
++ 微调依赖包：   ```pip install -r requirements_sft.txt```
 
 ### 推理方法
 ```
 python -u inferrence.py <model_path> <input_file> <output_file> [adapter_path]
 ```
 + ```model_path``` ：模型文件路径
-+ ```input_file``` ：推断的输入```.txt```文件路径，每行为一个prompt
++ ```input_file``` ：推理的输入```.txt```文件路径，每行为一个prompt
 + ```output_file``` ：输出的```.json```文件路径
-+ ```adapter_path```：如果要使用微调后的adpter，设置其路径
++ ```adapter_path```：如果要使用微调后的 adapter，设置其路径
 &nbsp;
 # 📰 新闻 
 + 2023年11月21日，九章云极举办开源Alaya-7B系列大模型发布会。  
-
++ 2023年11月21日，九章云极发布了多模态MMAlaya。 
+ + 2024年1月29日，九章云极开源了多模态 [MMAlaya](https://github.com/DataCanvasIO/MMAlaya)。 
 
 &nbsp;
 # 🛎 声明
@@ -120,7 +121,7 @@ Alaya训练过程中已经采取多种措施进行数据的筛选与过滤，尽
 
 &nbsp;
 # 📃 协议
-Alaya使用<a href="https://github.com/DataCanvasIO/Alaya/blob/main/LICENSE">Apache 2.0 Lisense</a>，开放模型权重，允许商业用途。如果您的项目引用了我们的Alaya，请标明出处，可以使用以下citation：
+Alaya使用<a href="https://github.com/DataCanvasIO/Alaya/blob/main/LICENSE">Apache 2.0 License</a>，开放模型权重，允许商业用途。如果您的项目引用了我们的Alaya，请标明出处，可以使用以下citation：
 ```
 @misc{datacanvas2023alaya,
     author = {DataCanvas Ltd.},
