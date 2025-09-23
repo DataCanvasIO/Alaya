@@ -81,7 +81,7 @@ Fine-tuning with scientifically designed data significantly boosts the model's q
 ### Dependency Installation
 ```shell
 git clone https://github.com/DataCanvasIO/Alaya.git
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 
 ### Chat Model Inferrence
